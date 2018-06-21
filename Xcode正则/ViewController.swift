@@ -30,8 +30,15 @@ class ViewController: UIViewController {
         //目标：取出href 中的链接，以及文本描述
         let string = "<a href=\"http://app.weibo.com/t/feed/6vZb0\" rel=\"nofollow\">微博 weibo.com</a>"
         //2.创建正则表达式
-        //0> pattern - 匹配方案
-        let pattern = "<a href=\"http://app.weibo.com/t/feed/6vZb0\" rel=\"nofollow\">微博 weibo.com</a>"
+        //0> pattern - 常说的正则表达式，就是pattern的写法【匹配方案】
+        //索引：
+        //索引0:和匹配方案完全一致的字符串
+        //索引1:第一个（）中的内容
+        //索引2:第二个（）中的内容
+        //...索引从左向右循环递增
+        //
+        //对于模糊匹配，如果关心的内容，就使用(.*?)，然后通过索引可以获取结果；如果不关心的内容，就是'.*?'，可以匹配任意的内容
+        let pattern = "<a href=\"(.*?)\" rel=\"nofollow\">(.*?)</a>"
         //1>创建正则表达式，如果pattern失败，抛出异常
         guard let regx = try? NSRegularExpression(pattern: pattern, options: []) else {
             return
@@ -52,7 +59,7 @@ class ViewController: UIViewController {
             print(result.range(at: idx))
             let r = result.range(at: idx)
             let subStr = (string as NSString).substring(with: r)
-            print(subStr)
+            print("索引\(idx)---\(subStr)")
         }
     }
 
