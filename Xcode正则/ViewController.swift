@@ -5,9 +5,12 @@
 //  Created by 中发 on 2018/6/21.
 //  Copyright © 2018年 中发. All rights reserved.
 //
-
+/**
+ 有关正则表达式的参考文档链接：http://deerchao.net/tutorials/regex/regex/htm
+ */
 import UIKit
 
+/// 正则表达式
 class ViewController: UIViewController {
 
     /**
