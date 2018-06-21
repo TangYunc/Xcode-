@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         //...索引从左向右循环递增
         //
         //对于模糊匹配，如果关心的内容，就使用(.*?)，然后通过索引可以获取结果；如果不关心的内容，就是'.*?'，可以匹配任意的内容
-        let pattern = "<a href=\"(.*?)\" rel=\"nofollow\">(.*?)</a>"
+        let pattern = "<a href=\"(.*?)\" .*?>(.*?)</a>"
         //1>创建正则表达式，如果pattern失败，抛出异常
         guard let regx = try? NSRegularExpression(pattern: pattern, options: []) else {
             return
